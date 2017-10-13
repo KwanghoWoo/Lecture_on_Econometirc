@@ -17,6 +17,7 @@ nrow(serv)
 summary(serv)
 plot(finind~servpc, data=serv, subset = servpc<28)
 
+if (!requireNamespace("quantreg")) install.packages("quantreg")
 library(quantreg)
 serv1 <- serv[serv$servpc<28,]
 plot(finind~servpc, data=serv1, pch=19)
@@ -30,6 +31,8 @@ datadir <- "http://econ.korea.ac.kr/~chirokhan/book/data"
 ivdata <- read.csv(file.path(datadir, "ivdata.csv"))
 names(ivdata)
 nrow(ivdata)
+
+if (!requireNamespace("lmtest")) install.packages("lmtest")
 library(lmtest)
 coeftest(lm(y~x1+x2, data=ivdata))
 
