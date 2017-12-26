@@ -50,3 +50,15 @@ ivdata$x2_1hat <- fitted(stage1_1)
 stage2_1 <- lm(y~x1+x2_1hat, data=ivdata)
 coeftest(stage2_1)
 
+# simulation(p. 101)
+n1 <- 13
+n2 <- 25
+n3 <- 16
+n <- n1+n2+n3
+educ <- c(rep(12,n1),rep(25,n2),rep(16,n3))
+stdevs <- c(rep(0.8,n1),rep(1.0,n2),rep(1.4,n3))
+u <- stdevs*rnorm(n)
+lnwage <- 8.3 + 0.08*educ + u
+
+cbind(educ,lnwage)
+plot(lnwage~educ)
