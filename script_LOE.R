@@ -62,3 +62,27 @@ lnwage <- 8.3 + 0.08*educ + u
 
 cbind(educ,lnwage)
 plot(lnwage~educ)
+
+## extrapolation ##
+if (!requireNamespace("Ecdat")) install.packages("Ecdat")
+library(Ecdat)
+
+data(Housing, package = "Ecdat")
+H3 <- Housing[Housing$bedrooms==3,]
+ols2 <- lm(log(price)~log(lotsize)+I(log(lotsize)^2), data = H3)
+summary(ols2)
+
+# check the variable range 
+-3.29052/(0.16510*2)
+summary(log(H3$lotsize))
+
+ols1 <- lm(log(price)~log(lotsize), data = H3)
+summary(ols1)
+
+plot(log(price)~log(lotsize), data = H3)
+x <- sort(log(H3$lotsize))
+b1 <- ols1$coefficients
+b2 <- ols2$coefficients
+lines(x, b2[1]+b2[2]*x+b2[3]*x^2)
+lines(x, b1[1]+b1[2]*x, lty=2)
+legend("topleft", c("quadratic", "linear"), lty = c(1,2))
