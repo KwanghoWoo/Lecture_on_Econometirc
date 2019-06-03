@@ -89,3 +89,5 @@ b2 <- ols2$coefficients
 lines(x, b2[1] + b2[2] * x + b2[3] * x ^ 2)
 lines(x, b1[1] + b1[2] * x, lty = 2)
 legend("topleft", c("quadratic", "linear"), lty = c(1, 2))
+
+### please~~~~~!!!!!###
