@@ -91,3 +91,5 @@ lines(x, b1[1] + b1[2] * x, lty = 2)
 legend("topleft", c("quadratic", "linear"), lty = c(1, 2))
 
 ### please~~~~~!!!!!###
+
+##check again ###
