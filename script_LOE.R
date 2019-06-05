@@ -93,3 +93,5 @@ legend("topleft", c("quadratic", "linear"), lty = c(1, 2))
 ### please~~~~~!!!!!###
 
 ##check again ###
+
+### check 3 again ###
